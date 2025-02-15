@@ -3,6 +3,8 @@
 ## Description
 This script is designed to send automatic birthday reminder emails for birthdays occurring on the same day the script is run. Optionally, it can also create an `.ics` calendar file for those birthdays, which is especially useful for email clients like Thunderbird that don't display birthdays from contacts in the calendar.
 
+![birthday_reminder](https://github.com/user-attachments/assets/0387ad68-140e-44db-b8ad-e314266498a8)
+
 ## Features
 - Fetch the VCF file from the URL
 - Check for birthdays on the current day
