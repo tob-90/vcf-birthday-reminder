@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <style>
         :root {
-            color-scheme: light;
+            color-scheme: dark;
         }
         body {
             font-family: Arial, sans-serif;
-			      color: #000000;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
         .container {
-            background-color: #ffffff;
+            background-color: #E9E9E9;
             margin: 50px auto;
             padding: 20px;
             max-width: 600px;
@@ -23,7 +21,7 @@
             word-wrap: break-word;
         }
         .header {
-            background-color: #007BFF;
+            background-color: #0056b3;
             color: #ffffff;
             padding: 1px 0;
             text-align: center;
@@ -31,9 +29,10 @@
         }
         .content {
             padding: 20px;
+	    color: #000000;
         }
         .footer {
-            background-color: #f4f4f4;
+            background-color: #E0E0E5;
             color: #666666;
             text-align: center;
             padding: 10px;
@@ -52,9 +51,9 @@
             <h2><span class="symbol">🎉 </span>{{header}}<span class="symbol"> 🎈</span></h2>			
         </div>
         <div class="content">
-			<div class="birthday-message" style="text-align: center;">
-				<p>{{body1}} <b>{{name}}</b>{{body2}}</p>
-			</div>
+	    <div class="birthday-message" style="text-align: center;">
+		<p>{{body1}} <b>{{name}}</b>{{body2}}</p>
+	    </div>
         </div>
         <div class="footer">
             {{footer}}
