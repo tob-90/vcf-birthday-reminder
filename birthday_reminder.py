@@ -150,6 +150,10 @@ def load_template(template_file_path, name):
     
     return body
 
+def is_leap_year(year):
+    """ Prüft, ob ein Jahr ein Schaltjahr ist. """
+    return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
+
 def main():
     vcf_data = fetch_vcf(vcf_url)  # VCF-Daten von der URL abrufen
     components = parse_vcf(vcf_data)
@@ -158,9 +162,15 @@ def main():
     today = datetime.now(TIMEZONE).date()  # Aktuelles Datum in der richtigen Zeitzone
     for name, bday in birthdays:
         if bday.month == today.month and bday.day == today.day:
-            subject = f"{selected_texts['subject']} {name} (*{bday.strftime(DATE_FORMAT)})"
-            body = load_template(template_file_path, name)
-            send_email(name, sender_name, sender_email, subject, body, to_email)
+            pass  # Normaler Fall, Geburtstag ist heute
+        elif bday.month == 2 and bday.day == 29 and not is_leap_year(today.year) and today.month == 3 and today.day == 1:
+            pass  # Falls heute der 01.03. ist und der Geburtstag am 29.02. war
+        else:
+            continue
+
+        subject = f"{selected_texts['subject']} {name} (*{bday.strftime(DATE_FORMAT)})"
+        body = load_template(template_file_path, name)
+        send_email(name, sender_name, sender_email, subject, body, to_email)
 
     if ics_output:
         create_ics(birthdays, ics_path)
